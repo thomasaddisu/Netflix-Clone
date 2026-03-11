@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/Navbar";
+import MovieCard from "./components/MovieCard";
 
 function App() {
   // const api_key = "f5dbc711dafb082ca6650b6bea42134a";
@@ -25,12 +26,19 @@ function App() {
   return (
     <>
       <div
-        className="w-full min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movies[Math.random().toFixed(1)* movies.length].backdrop_path})` }}
+        className="w-full min-h-screen bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movies[0].backdrop_path})` }}
     
         
       >
-        <Navbar />
+        <Navbar  />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  justify-items-center">
+          {movies.map(movie=>(
+            <MovieCard key={movie.id} movie={movie}/>
+          ))}
+        </div>
+       
+        {/* < MovieCard key={movies[0].id} movie={movies[0]}/> */}
       </div>
     </>
   );
