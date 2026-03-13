@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,20 +17,31 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-sm font-medium">
-          <li className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
-            Home
+            <li>
+
+              <Link to="/" className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
+                Home
+              </Link>
+            </li>
+          <li>
+            <Link to="/tv-shows" className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
+              TV Shows
+            </Link>
           </li>
-          <li className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
-            TV Shows
+          <li>
+            <Link to="/movies" className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
+              Movies
+            </Link>
           </li>
-          <li className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
-            Movies
+          <li>
+            <Link to="/new-and-popular" className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
+              New & Popular
+            </Link>
           </li>
-          <li className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
-            New & Popular
-          </li>
-          <li className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
-            My List
+          <li>
+            <Link to="/my-list" className="hover:text-white text-neutral-400 transition duration-200 cursor-pointer">
+              My List
+            </Link>
           </li>
         </ul>
 
@@ -61,13 +73,21 @@ function Navbar() {
       {open && (
         <div className="md:hidden bg-black px-4 pb-4">
           <ul className="flex flex-col gap-3 text-sm">
-            <li className="hover:text-gray-300 cursor-pointer">Home</li>
-            <li className="hover:text-gray-300 cursor-pointer">TV Shows</li>
-            <li className="hover:text-gray-300 cursor-pointer">Movies</li>
-            <li className="hover:text-gray-300 cursor-pointer">
-              New & Popular
-            </li>
-            <li className="hover:text-gray-300 cursor-pointer">My List</li>
+            <Link to="/" className="hover:text-gray-300 cursor-pointer">
+              <li>Home</li>
+            </Link>
+            <Link to="/tv-shows" className="hover:text-gray-300 cursor-pointer">
+              <li>TV Shows</li>
+            </Link>
+            <Link to="/movies" className="hover:text-gray-300 cursor-pointer">
+              <li>Movies</li>
+            </Link>
+            <Link to="/new-and-popular" className="hover:text-gray-300 cursor-pointer">
+              <li>New & Popular</li>
+            </Link>
+            <Link to="/my-list" className="hover:text-gray-300 cursor-pointer">
+              <li>My List</li>
+            </Link> 
           </ul>
         </div>
       )}

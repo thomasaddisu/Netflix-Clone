@@ -5,7 +5,7 @@ function MovieCard({ movie }) {
     : "https://via.placeholder.com/500x750?text=No+Image";
 
   return (
-    <div className="mt-9 relative w-44 sm:w-48 lg:w-52 cursor-pointer group overflow-hidden rounded-lg shadow-lg">
+    <div className="mt-9 shrink-0 relative w-44 sm:w-48 lg:w-52 cursor-pointer group overflow-hidden rounded-lg shadow-lg">
       
       {/* Poster Image */}
       <img
