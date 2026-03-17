@@ -1,0 +1,5 @@
+.movie-row {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
