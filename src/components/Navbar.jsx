@@ -51,7 +51,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="hidden md:block  border border-neutral-700 text-sm px-3 py-1 rounded focus:outline-none focus:border-red-500 bg-transparent text-red-600"
+            className="hidden md:block  border border-neutral-700 text-sm px-3 py-1 rounded focus:outline-none focus:border-red-500 bg-transparent text-white"
           />
 
           {/* Profile */}
