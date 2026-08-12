@@ -4,6 +4,11 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
+import TvShowsPage from "./pages/TvShowsPage";
+import MoviesPage from "./pages/MoviesPage";
+import NewAndPopularPage from "./pages/NewAndPopularPage";
+import MyListPage from "./pages/MyListPage";
+import SearchPage from "./pages/SearchPage";
 function App() {
   // const api_key = "f5dbc711dafb082ca6650b6bea42134a";
   const API_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=f5dbc711dafb082ca6650b6bea42134a`;
@@ -37,10 +42,11 @@ function App() {
         <Navbar  />
         <Routes>
           <Route path="/" element={<HomePage movies={movies}/>} />
-          <Route path="/tv-shows" element={<>Tv shows</>} />
-          <Route path="/movies" element={<>movies</>} />
-          <Route path="/new-and-popular" element={<>new and popular</>} />
-          <Route path="/my-list" element={<>My List</>} />
+          <Route path="/tv-shows" element={<TvShowsPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/new-and-popular" element={<NewAndPopularPage />} />
+          <Route path="/my-list" element={<MyListPage />} />
+          <Route path="/search" element={<SearchPage />} />
 
         </Routes>
 

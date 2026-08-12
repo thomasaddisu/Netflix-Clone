@@ -1,8 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+      setOpen(false);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full  text-neutral-100 z-50 border-neutral-800 bg-transparent">
@@ -11,7 +21,9 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="text-red-600 font-extrabold text-2xl tracking-wider hover:text-red-500 transition ">
-            NETFLIX
+            <Link className="hover:text-red-500" to="/">
+                NETFLIX
+            </Link>
           </span>
         </div>
 
@@ -51,7 +63,10 @@ function Navbar() {
           <input
             type="text"
             placeholder="Search"
-            className="hidden md:block  border border-neutral-700 text-sm px-3 py-1 rounded focus:outline-none focus:border-red-500 bg-transparent text-white"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleSearch}
+            className="hidden md:block border border-neutral-700 text-sm px-3 py-1 rounded focus:outline-none focus:border-red-500 bg-transparent text-white"
           />
 
           {/* Profile */}
@@ -72,6 +87,15 @@ function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-black px-4 pb-4">
+          {/* Mobile Search */}
+          <input
+            type="text"
+            placeholder="Search movies & TV shows..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleSearch}
+            className="w-full border border-neutral-700 text-sm px-3 py-2 rounded focus:outline-none focus:border-red-500 bg-transparent text-white mb-3"
+          />
           <ul className="flex flex-col gap-3 text-sm">
             <Link to="/" className="hover:text-gray-300 cursor-pointer">
               <li>Home</li>
